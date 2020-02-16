@@ -22,3 +22,8 @@ Run `surge --help` to see the following overview of the `surge` command...
 
   Usage:
     surge <project> <domain>
+
+  Options:
+    -a, --add           adds user to list of collaborators (email address)
+    -r, --remove        removes user from list of collaborators (email address)
+    -V, --version 

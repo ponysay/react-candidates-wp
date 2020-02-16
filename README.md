@@ -12,4 +12,13 @@ This CLI library manages access tokens locally and handles the upload and subseq
 
 It’s easier to show than tell so let’s get to it! The following command will deploy the current working directory to the surge servers where the application will be available at sintaxi.com.
 
-    $ sur
+    $ surge ./ sintaxi.com
+
+Run `surge --help` to see the following overview of the `surge` command...
+
+```
+
+  Surge – Single-command web publishing. (v0.20.3)
+
+  Usage:
+    surge <project> <domain>

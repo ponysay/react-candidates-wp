@@ -32,4 +32,11 @@ Run `surge --help` to see the following overview of the `surge` command...
   Additional commands:
     surge whoami        show who you are logged in as
     surge logout        expire local token
-    surge login         only performs aut
+    surge login         only performs authentication step
+    surge list          list all domains you have access to
+    surge teardown      tear down a published project
+    surge plan          set account plan
+
+  Guides:
+    Getting started     surge.sh/help/getting-started-with-surge
+    Cus

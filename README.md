@@ -39,4 +39,13 @@ Run `surge --help` to see the following overview of the `surge` command...
 
   Guides:
     Getting started     surge.sh/help/getting-started-with-surge
-    Cus
+    Custom domains      surge.sh/help/adding-a-custom-domain
+    Additional help     surge.sh/help
+
+  When in doubt, run surge from within your project directory.
+
+```
+
+## CDN Features
+
+- Custom CNAME & custom SSL

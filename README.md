@@ -49,3 +49,11 @@ Run `surge --help` to see the following overview of the `surge` command...
 ## CDN Features
 
 - Custom CNAME & custom SSL
+- Fallback 404.html pages
+- HTML5 mode 200.html pages
+- Stays out of `git`s way
+- Supports clean URLs && trailing slashes `/`
+- Implicit signup
+- Supports CNAME files
+
+If you’re using tools like Grunt, Gulp, or a static site generator like Jekyl

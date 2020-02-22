@@ -56,4 +56,8 @@ Run `surge --help` to see the following overview of the `surge` command...
 - Implicit signup
 - Supports CNAME files
 
-If you’re using tools like Grunt, Gulp, or a static site generator like Jekyl
+If you’re using tools like Grunt, Gulp, or a static site generator like Jekyll, your files are output into a compile directory like `_site/`, `build/`, or `www/`. From the root of your project, pass Surge the path to this directory to upload your compiled assets.
+
+    surge www
+
+You may also a

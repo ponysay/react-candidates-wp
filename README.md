@@ -60,4 +60,4 @@ If you’re using tools like Grunt, Gulp, or a static site generator like Jekyll
 
     surge www
 
-You may also a
+You may also add this directory to your `.gitignore` to keep your compiled assets out of your Git history.

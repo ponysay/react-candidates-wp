@@ -23,4 +23,5 @@ test_script:
   - npm test
 
 # Don't actually build or deploy.
-build
+build: off
+deploy: off

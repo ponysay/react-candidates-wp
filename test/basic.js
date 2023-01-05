@@ -248,3 +248,73 @@ describe("surge " + testid + " using " + user, function () {
     })
 
     it('should have project in list', function (done) {
+      this.timeout(2500)
+      nixt(opts)
+      .run(surge + 'list')
+      .expect(function (result) {
+        should(result.stdout).match(new RegExp(resultedDomain))
+      }).end(done)
+    })
+
+    it('should update project', function (done) {
+      this.timeout(5000)
+      nixt(opts)
+      .run(surge)
+      .on(/.*project:.*/).respond('./test/fixtures/projects/hello-world\n')
+      .on(/.*domain:.*/).respond(domain + "\n")
+      .expect(function (result) {
+        should(result.stdout).not.match(pass)
+        should(result.stdout).match(new RegExp("Success! - Published to " + domain))
+        resultedDomain = result.stdout.split('Success! - Published to')[1].trim()
+        resultedDomain.should.equal(domain)
+      }).end(done)
+    })
+
+    it('should teardown project', function (done) {
+      this.timeout(5000)
+      nixt(opts)
+      .run(surge + 'teardown')
+      .on(/.*domain:.*/).respond(domain + '\n')
+      .expect(function (result) {
+        should(result.stdout).match(/Success/)
+        should(result.stdout).match(/has been removed/)
+        should(result.stdout).match(new RegExp(subdomain))
+        should(result.stdout).not.match(subdomain)
+      }).end(done)
+    })
+
+    it('should no longer have project in list', function (done) {
+      this.timeout(2500)
+      nixt(opts)
+      .run(surge + 'list')
+      .expect(function (result) {
+        should(result.stdout).not.match(new RegExp(resultedDomain))
+      }).end(done)
+    })
+
+  })
+
+  describe('token', function () {
+    it('`surge token`', function (done) {
+      this.timeout(2500)
+      nixt(opts)
+        .run(surge + 'token')
+        .expect(function (result) {
+          should(result.stdout).match(/([\w]{32})/)
+        }).end(done)
+    })
+
+    // Failing
+    // it('should not list the token twice', function (done) {
+    //   this.timeout(1500)
+    //
+    //   nixt(opts)
+    //     .run(surge + 'token')
+    //     .expect(function (result) {
+    //       should(result.stdout).not.match(/.*token: (\**)*./)
+    //     })
+    //     .end(done)
+    // })
+  })
+
+})

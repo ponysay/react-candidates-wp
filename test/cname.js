@@ -26,4 +26,11 @@ describe('crud', function (done) {
     nixt(opts)
     .exec(surge + 'logout')
     .on(/.*email:.*/).respond(user + "\n")
-    .on(/.*password:.*/).respond(
+    .on(/.*password:.*/).respond(pass + "\n")
+    .run(surge + './test/fixtures/projects/cname-world')
+    .expect(function (result) {
+      should(/Success/).match(/Success/)
+    }).end(done)
+  })
+
+  it('should ac

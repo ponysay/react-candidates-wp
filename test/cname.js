@@ -15,4 +15,15 @@ var opts = {
   newlines: false
 }
 
-describe('crud', function (done)
+describe('crud', function (done) {
+
+  describe("publish", function(done){
+
+  })
+
+  it('work', function (done) {
+    this.timeout(1500)
+    nixt(opts)
+    .exec(surge + 'logout')
+    .on(/.*email:.*/).respond(user + "\n")
+    .on(/.*password:.*/).respond(

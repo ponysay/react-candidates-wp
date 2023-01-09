@@ -33,4 +33,10 @@ describe('crud', function (done) {
     }).end(done)
   })
 
-  it('should ac
+  it('should access cname file when no arg present', function (done) {
+    this.timeout(1500)
+    nixt(opts)
+    .exec(surge + 'logout')
+    .on(/.*email:.*/).respond(user + "\n")
+    .on(/.*password:.*/).respond(pass + "\n")
+    

@@ -39,4 +39,7 @@ describe('crud', function (done) {
     .exec(surge + 'logout')
     .on(/.*email:.*/).respond(user + "\n")
     .on(/.*password:.*/).respond(pass + "\n")
-    
+    .run(surge + './test/fixtures/projects/cname-world')
+    .expect(function (result) {
+      should(result.stdout).match(/2 file/)
+      should(result.stdout).match(/Success! Project is published and running at cli-test

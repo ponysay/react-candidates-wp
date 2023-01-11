@@ -50,4 +50,10 @@ describe('crud', function (done) {
     this.timeout(1500)
     nixt(opts)
       .run(surge + './test/fixtures/cli-test-3.surge.sh')
-      .expect(fun
+      .expect(function (result) {
+        should(result.stdout).match(/2 file/)
+        should(result.stdout).match(/Success! Project is published and running at cli-test-3/)
+      })
+      .end(done)
+  })
+  it('`surge` with CNAME file and sub

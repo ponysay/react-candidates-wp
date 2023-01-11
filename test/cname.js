@@ -71,4 +71,7 @@ describe('crud', function (done) {
 
     var subdomain = ''
 
- 
+    nixt(opts)
+      .run(surge + './test/fixtures/cli-test-3.surge.sh --domain https://cli-override-2.surge.sh')
+      .expect(function (result) {
+        result.domain = result.stdout.split('Project is 

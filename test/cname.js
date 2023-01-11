@@ -77,4 +77,11 @@ describe('crud', function (done) {
         result.domain = result.stdout.split('Project is published and running at ')[1].trim()
         should(result.stdout).match(/2 file/)
         should(result.stdout).match(/Success! Project is published and running at/)
-        should(result.domain).equal('cli-override-2.s
+        should(result.domain).equal('cli-override-2.surge.sh')
+        should(result.domain).not.equal('cli-override-3.surge.sh')
+      })
+      .end(done)
+  })
+
+
+})

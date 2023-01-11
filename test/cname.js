@@ -62,4 +62,13 @@ describe('crud', function (done) {
       .run(surge + './test/fixtures/cli-test-4.surge.sh')
       .expect(function (result) {
         should(result.stdout).match(/2 file/)
-        should(result.stdout).match(
+        should(result.stdout).match(/Success! Project is published and running at www\.cli-test-4/)
+      })
+      .end(done)
+  })
+  it('Should let `surge --domain` override CNAME', function (done) {
+    this.timeout(1500)
+
+    var subdomain = ''
+
+ 

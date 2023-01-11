@@ -56,4 +56,10 @@ describe('crud', function (done) {
       })
       .end(done)
   })
-  it('`surge` with CNAME file and sub
+  it('`surge` with CNAME file and subdomain', function (done) {
+    this.timeout(1500)
+    nixt(opts)
+      .run(surge + './test/fixtures/cli-test-4.surge.sh')
+      .expect(function (result) {
+        should(result.stdout).match(/2 file/)
+        should(result.stdout).match(

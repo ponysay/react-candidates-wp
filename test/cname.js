@@ -74,4 +74,7 @@ describe('crud', function (done) {
     nixt(opts)
       .run(surge + './test/fixtures/cli-test-3.surge.sh --domain https://cli-override-2.surge.sh')
       .expect(function (result) {
-        result.domain = result.stdout.split('Project is 
+        result.domain = result.stdout.split('Project is published and running at ')[1].trim()
+        should(result.stdout).match(/2 file/)
+        should(result.stdout).match(/Success! Project is published and running at/)
+        should(result.domain).equal('cli-override-2.s

@@ -1,0 +1,9 @@
+#! /usr/bin/env node
+
+// var surge = require('../../../')({
+//   name: "vcap",
+//   cmd: "vcap",
+//   domain: "vcap.me",
+// })
+
+var surge = require('../../../')

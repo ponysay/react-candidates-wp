@@ -13,4 +13,6 @@ program
   .argv
 
 program
-  .command('whoami', 'Check who you are logged in as.', surge.whoa
+  .command('whoami', 'Check who you are logged in as.', surge.whoami(hooks))
+  .usage('$0 <command>')
+  .argv

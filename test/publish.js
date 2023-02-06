@@ -25,4 +25,8 @@ describe('publish', function (done) {
       .run(surge)
       .on(/.*email:.*/).respond('brock+test@chloi.io\n')
       .on(/.*password:.*/).respond('12345\n')
-      .on(/.
+      .on(/.*project:.*/).respond('./test/fixtures/cli-test.surge.sh\n')
+      .on(/.*domain:.*/).respond('cli-test.surge.sh\n')
+      .expect(function (result) {
+        should(result.stdout).not.match('12345')
+        s

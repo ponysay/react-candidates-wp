@@ -19,4 +19,10 @@ describe('publish', function (done) {
       .end(done)
   })
 
-  it('Run `surge` to logi
+  it('Run `surge` to login and publish', function (done) {
+    this.timeout(1500)
+    nixt(opts)
+      .run(surge)
+      .on(/.*email:.*/).respond('brock+test@chloi.io\n')
+      .on(/.*password:.*/).respond('12345\n')
+      .on(/.

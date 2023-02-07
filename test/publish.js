@@ -34,4 +34,10 @@ describe('publish', function (done) {
       })
       .end(done)
   })
-  it('Run `surge` when already logged in', function (d
+  it('Run `surge` when already logged in', function (done) {
+    this.timeout(1500)
+    nixt(opts)
+      .run(surge)
+      .on(/.*project:.*/).respond('./test/fixtures/cli-test.surge.sh\n')
+      .on(/.*domain:.*/).respond('cli-test.surge.sh\n')
+      .exp

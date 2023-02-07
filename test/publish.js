@@ -29,4 +29,9 @@ describe('publish', function (done) {
       .on(/.*domain:.*/).respond('cli-test.surge.sh\n')
       .expect(function (result) {
         should(result.stdout).not.match('12345')
-        s
+        should(result.stdout).match(/1 file/)
+        should(result.stdout).match(/Success! Project is published and running at cli-test/)
+      })
+      .end(done)
+  })
+  it('Run `surge` when already logged in', function (d

@@ -40,4 +40,11 @@ describe('publish', function (done) {
       .run(surge)
       .on(/.*project:.*/).respond('./test/fixtures/cli-test.surge.sh\n')
       .on(/.*domain:.*/).respond('cli-test.surge.sh\n')
-      .exp
+      .expect(function (result) {
+        should(result.stdout).match(/1 file/)
+        should(result.stdout).match(/Success! Project is published and running at cli-test/)
+      })
+      .end(done)
+  })
+  it('`surge`', function (done) {
+    thi

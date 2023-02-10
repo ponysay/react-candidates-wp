@@ -52,4 +52,13 @@ describe('publish', function (done) {
       .run(surge + './test/fixtures/cli-test.surge.sh cli-test.surge.sh')
       .expect(function (result) {
         should(result.stdout).match(/1 file/)
-        should(result.stdout).match(/Success! Proj
+        should(result.stdout).match(/Success! Project is published and running at cli-test/)
+      })
+      .end(done)
+  })
+  it('`surge ./`', function (done) {
+    this.timeout(1500)
+
+    nixt(opts)
+      .run(surge + './test/fixtures/cli-test.surge.sh')
+  

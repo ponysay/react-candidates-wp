@@ -47,4 +47,9 @@ describe('publish', function (done) {
       .end(done)
   })
   it('`surge`', function (done) {
-    thi
+    this.timeout(1500)
+    nixt(opts)
+      .run(surge + './test/fixtures/cli-test.surge.sh cli-test.surge.sh')
+      .expect(function (result) {
+        should(result.stdout).match(/1 file/)
+        should(result.stdout).match(/Success! Proj

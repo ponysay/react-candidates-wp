@@ -80,3 +80,10 @@ describe('publish', function (done) {
       })
       .end(done)
   })
+  it('`surge --domain`', function (done) {
+    this.timeout(1500)
+
+    nixt(opts)
+      .run(surge + '--domain cli-test.surge.sh')
+      .on(/.*project:.*/).respond('./test/fixtures/cli-test.surge.sh\n')
+      .on(/.*domain:.*/).resp

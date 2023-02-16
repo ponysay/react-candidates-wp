@@ -86,4 +86,11 @@ describe('publish', function (done) {
     nixt(opts)
       .run(surge + '--domain cli-test.surge.sh')
       .on(/.*project:.*/).respond('./test/fixtures/cli-test.surge.sh\n')
-      .on(/.*domain:.*/).resp
+      .on(/.*domain:.*/).respond('\n')
+      .expect(function (result) {
+        should(result.stdout).match(/1 file/)
+        should(result.stdout).match(/Success! Project is published and running at cli-test/)
+      })
+      .end(done)
+  })
+  it('`surge --pro

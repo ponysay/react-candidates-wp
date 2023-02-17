@@ -99,4 +99,9 @@ describe('publish', function (done) {
     nixt(opts)
       .run(surge + '--domain cli-test.surge.sh --project ./test/fixtures/cli-test.surge.sh')
       .expect(function (result) {
-        should(result
+        should(result.stdout).match(/1 file/)
+        should(result.stdout).match(/Success! Project is published and running at cli-test/)
+      })
+      .end(done)
+  })
+  it('Should not publish a project a nonexistent directory', functi

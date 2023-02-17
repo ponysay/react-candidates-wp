@@ -93,4 +93,10 @@ describe('publish', function (done) {
       })
       .end(done)
   })
-  it('`surge --pro
+  it('`surge --project --domain`', function (done) {
+    this.timeout(1500)
+
+    nixt(opts)
+      .run(surge + '--domain cli-test.surge.sh --project ./test/fixtures/cli-test.surge.sh')
+      .expect(function (result) {
+        should(result

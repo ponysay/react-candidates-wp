@@ -122,4 +122,14 @@ describe('publish', function (done) {
       .run(surge + './test/fixtures/cli-test.surge.sh cli-test-5.surge.sh')
       .expect(function (result) {
         should(result.stdout).match(/Aborted/)
-        should(resu
+        should(result.stdout).match(/cli-test-5\.surge\.sh/)
+        should(result.stdout).match(/cli-test\.surge\.sh/)
+      })
+      .end(done)
+  })
+
+  after(function (done) {
+    this.timeout(1500)
+
+    nixt(opts)
+      .run(surge 

@@ -104,4 +104,10 @@ describe('publish', function (done) {
       })
       .end(done)
   })
-  it('Should not publish a project a nonexistent directory', functi
+  it('Should not publish a project a nonexistent directory', function (done) {
+    this.timeout(1500)
+
+    nixt(opts)
+      .run(surge + '--project ./test/fixtures/cli-test-0.surge.sh')
+      .expect(function (result) {
+        should(result.stdout).match(/No such file or d

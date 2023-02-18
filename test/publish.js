@@ -110,4 +110,10 @@ describe('publish', function (done) {
     nixt(opts)
       .run(surge + '--project ./test/fixtures/cli-test-0.surge.sh')
       .expect(function (result) {
-        should(result.stdout).match(/No such file or d
+        should(result.stdout).match(/No such file or directory/)
+        should(result.stdout).not.match(/{[1-9]+:[1-9]+}/)
+        should(result.stdout).match(/cli-test-0.surge.sh/)
+      })
+      .end(done)
+  })
+  it('Should not publish a project it doesn’t have access to', function

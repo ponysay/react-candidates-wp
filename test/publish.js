@@ -132,4 +132,8 @@ describe('publish', function (done) {
     this.timeout(1500)
 
     nixt(opts)
-      .run(surge 
+      .run(surge + 'logout') // Logout after the test is over
+      .end(done)
+  })
+
+})

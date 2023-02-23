@@ -19,4 +19,8 @@ describe('teardown', function () {
     nixt(opts)
       .exec(surge + 'logout') // Logout before the test starts
       .run(surge)
-      .on(/.*email:.*/).respond('brock+test@
+      .on(/.*email:.*/).respond('brock+test@chloi.io\n')
+      .on(/.*password:.*/).respond('12345\n')
+      .on(/.*project:.*/).respond('./test/fixtures/cli-test.surge.sh\n')
+      .on(/.*domain:.*/).respond('\n')
+      .expect(function (res

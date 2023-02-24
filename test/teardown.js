@@ -23,4 +23,14 @@ describe('teardown', function () {
       .on(/.*password:.*/).respond('12345\n')
       .on(/.*project:.*/).respond('./test/fixtures/cli-test.surge.sh\n')
       .on(/.*domain:.*/).respond('\n')
-      .expect(function (res
+      .expect(function (result) {
+        subdomain = result.stdout.split('Project is published and running at')[1].trim()
+      })
+      .end(done)
+  })
+
+  it('`surge teardown`', function (done) {
+    this.timeout(1500)
+
+    nixt(opts)
+      .run(surg

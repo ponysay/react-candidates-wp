@@ -33,4 +33,9 @@ describe('teardown', function () {
     this.timeout(1500)
 
     nixt(opts)
-      .run(surg
+      .run(surge + 'teardown')
+      .on(/.*domain:.*/).respond(subdomain + '\n')
+      .expect(function (result) {
+        should(result.stdout).match(/Success/)
+        should(result.stdout).match(/has been removed/)
+        should(re

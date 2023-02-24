@@ -38,4 +38,9 @@ describe('teardown', function () {
       .expect(function (result) {
         should(result.stdout).match(/Success/)
         should(result.stdout).match(/has been removed/)
-        should(re
+        should(result.stdout).match(new RegExp(subdomain))
+        should(result.stdout).not.match('cli-test')
+      })
+      .end(done)
+  })
+})
